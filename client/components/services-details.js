@@ -61,6 +61,23 @@ const ServicesDetails = () => {
       </div>
       <div className="services-details-container">
         <h1>Clients</h1>
+        <div className="clients-logo-container">
+          <img
+            id="github-logo"
+            className="single-logo"
+            src="https://morganfeir.s3.us-east-2.amazonaws.com/images/db-paintings/GitHub-Mark-120px-plus.png"
+          />
+          <img
+            id="logos-logo"
+            className="single-logo"
+            src="https://morganfeir.s3.us-east-2.amazonaws.com/images/db-paintings/logos.png"
+          />
+          <img
+            id="apple-logo"
+            className="single-logo"
+            src="https://morganfeir.s3.us-east-2.amazonaws.com/images/db-paintings/apple-logo.png"
+          />
+        </div>
       </div>
     </div>
   )

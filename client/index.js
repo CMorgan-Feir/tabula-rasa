@@ -5,14 +5,18 @@ import {Router} from 'react-router-dom'
 import history from './history'
 import store from './store'
 import App from './app'
+// import ScrollToTop from './components'
 
 // establishes socket connection
 import './socket'
+import {ScrollToTop} from './components'
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <App />
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
     </Router>
   </Provider>,
   document.getElementById('app')

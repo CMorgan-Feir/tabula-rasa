@@ -290,11 +290,25 @@ form div {
   vertical-align: middle;
   border-radius: 0px;
   background-color: #000;
-  color: #fff;
+  color: white;
   font-weight: 700;
   text-transform: none;
   width: 100px;
   height: 50px;
+}
+
+.continue-shopping-button {
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 0px;
+  background-color: white;
+  color: #000;
+  font-weight: 700;
+  text-transform: none;
+  width: 200px;
+  height: 50px;
+  padding-right: 10px;
 }
 
 .single-artwork-container {
@@ -360,4 +374,73 @@ form div {
   align-items: center;
   width: 50%;
   text-align: center;
+}
+
+.services-details-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#logos-logo {
+  width: 150px;
+}
+
+#github-logo {
+  width: 70px;
+}
+
+#apple-logo {
+  width: 60px;
+  padding-bottom: 5px;
+}
+
+.single-logo {
+  padding-left: 10px;
+}
+
+.cart-template {
+  padding-top: 60px;
+}
+.cart-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-table-row {
+  display: table-row;
+}
+
+.cart-table-cell,
+.cart-table-head {
+  display: table-cell;
+  padding: 1em;
+}
+
+.cart-table-head {
+  font-weight: bold;
+}
+
+.main-cell {
+  width: 50%;
+  display: flex;
+  align-content: space-between;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 150px;
+  align-content: space-between;
+  padding-top: 40px;
+}
+
+.continue-shopping-container {
+  padding-right: 30px;
+  padding-bottom: 100px;
+}
+
+.artwork-cart-details {
+  padding-left: 15px;
 }
