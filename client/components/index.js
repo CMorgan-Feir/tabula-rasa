@@ -4,5 +4,10 @@
  * having to figure out which file they belong to!
  */
 export {default as Navbar} from './navbar'
+export {default as Collections} from './collections'
 export {default as UserHome} from './user-home'
 export {Login, Signup} from './auth-form'
+export {default as Main} from './main'
+export {default as Footer} from './footer'
+export {default as SingleArtwork} from './single-artwork'
+export {default as ServicesDetails} from './services-details'
