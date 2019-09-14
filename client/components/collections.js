@@ -4,8 +4,22 @@ import {Link} from 'react-router-dom'
 import {getAllArtworks} from '../store'
 
 class Collections extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      formatter: new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      })
+    }
+  }
+
   componentDidMount() {
     this.props.getAllArtworks()
+  }
+
+  formatPrice(price) {
+    return this.state.formatter.format(price)
   }
 
   render() {
@@ -33,7 +47,7 @@ class Collections extends Component {
                 <p>
                   {artwork.title}, {artwork.year}
                 </p>
-                <p>${artwork.price}</p>
+                <p>{this.formatPrice(artwork.price)}</p>
               </div>
             </div>
           ))}

@@ -8,8 +8,22 @@ import {fetchSingleArtwork, addArtworkToOrder} from '../store'
  * COMPONENT
  */
 class SingleArtwork extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      formatter: new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      })
+    }
+  }
+
   componentDidMount() {
     this.props.fetchSingleArtwork(this.props.match.params.artworkId)
+  }
+
+  formatPrice(price) {
+    return this.state.formatter.format(price)
   }
 
   addToCart = () => {
@@ -29,7 +43,7 @@ class SingleArtwork extends React.Component {
             <h2>{artwork.artist}</h2>
             <h1>{artwork.title}</h1>
             <p>{artwork.year}</p>
-            <p>${artwork.price}</p>
+            <p>{this.formatPrice(artwork.price)}</p>
             <button
               type="submit"
               onClick={this.addToCart}

@@ -3,16 +3,35 @@ import {getCart, deleteFromCart} from '../store'
 import {connect} from 'react-redux'
 
 class Cart extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      formatter: new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      })
+    }
+  }
   componentDidMount() {
     this.props.getCart()
   }
 
-  // componentDidUpdate() {
-  //   this.props.getCart()
-  // }
+  formatPrice(price) {
+    return this.state.formatter.format(price)
+  }
 
   render() {
     const artworks = this.props.cart.cart
+    const grandTotal = artworks.length
+      ? artworks.reduce(
+          (accumulator, currentEl) => accumulator + currentEl.price,
+          0
+        )
+      : 0
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    })
     return (
       <div className="cart-template">
         <div className="cart-table">
@@ -40,9 +59,13 @@ class Cart extends Component {
                   </button>
                 </div>
               </div>
-              <div className="cart-table-cell">${artwork.price}</div>
+              <div className="cart-table-cell">
+                {this.formatPrice(artwork.price)}
+              </div>
               <div className="cart-table-cell">{artwork.quantity}</div>
-              <div className="cart-table-cell">{artwork.price}</div>
+              <div className="cart-table-cell">
+                {this.formatPrice(artwork.price * artwork.quantity)}
+              </div>
             </div>
           ))}
         </div>
@@ -58,6 +81,7 @@ class Cart extends Component {
             </button>
           </div>
         </div>
+        Here is your grand total: {grandTotal}
       </div>
     )
   }
