@@ -1,8 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchSingleArtwork, addArtworkToOrder, clearArtwork} from '../store'
-// import ErrorPage from './error'
-// import {Link} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 /**
  * COMPONENT
@@ -30,13 +29,12 @@ class SingleArtwork extends React.Component {
     return this.state.formatter.format(price)
   }
 
-  addToCart = () => {
-    this.props.addArtworkToOrder(this.props.match.params.artworkId)
-    return alert(`${this.props.artwork.title} has been added to your cart`)
+  addToCart = async () => {
+    await this.props.addArtworkToOrder(this.props.match.params.artworkId)
+    this.props.history.push('/cart')
   }
 
   render() {
-    console.log(this.props.loaded)
     if (this.props.loaded) {
       const artwork = this.props.artwork
       return (
