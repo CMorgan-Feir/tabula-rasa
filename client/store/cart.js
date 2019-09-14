@@ -4,6 +4,7 @@ import axios from 'axios'
 
 const GET_CART = 'GET_CART'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+const ADD_TO_ORDER = 'ADD_TO_ORDER'
 
 //INITIAL STATE
 
@@ -21,6 +22,11 @@ const gotCart = cart => ({
 const deletedFromCart = artworkId => ({
   type: REMOVE_FROM_CART,
   artworkId
+})
+
+const addedArtworkToOrder = artwork => ({
+  type: ADD_TO_ORDER,
+  artwork
 })
 
 //THUNK CREATORS
@@ -47,6 +53,17 @@ export const deleteFromCart = artworkId => {
   }
 }
 
+export const addArtworkToOrder = artworkId => {
+  return async dispatch => {
+    try {
+      const {data} = await axios.post(`/api/orders/`, {artworkId: artworkId})
+      dispatch(addedArtworkToOrder(data))
+    } catch (error) {
+      console.log('Something went wrong: ', error)
+    }
+  }
+}
+
 //REDUCER
 
 export default function(state = initialState, action) {
@@ -58,6 +75,8 @@ export default function(state = initialState, action) {
         cartItem => cartItem.id !== action.artworkId
       )
       return {...state, cart: [...newCart]}
+    case ADD_TO_ORDER:
+      return {...state, cart: [...state.cart, action.artwork]}
     default:
       return state
   }

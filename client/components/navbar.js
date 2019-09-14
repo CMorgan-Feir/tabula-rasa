@@ -4,17 +4,16 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout, getCart} from '../store'
 
-//({handleClick, isLoggedIn})
 class Navbar extends Component {
   componentDidMount() {
     this.props.getCart()
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.cart.cart.length !== prevProps.cart.cart.length) {
-      this.props.getCart()
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.cart.cart.length !== prevProps.cart.cart.length) {
+  //     this.props.getCart()
+  //   }
+  // }
 
   render() {
     console.log(this.props)
