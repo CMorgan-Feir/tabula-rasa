@@ -10,7 +10,8 @@ import {
   Collections,
   SingleArtwork,
   ServicesDetails,
-  Cart
+  Cart,
+  EditorialTemplate
 } from './components'
 import {me} from './store'
 
@@ -65,6 +66,7 @@ class Routes extends Component {
         />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/editorial" component={EditorialTemplate} />
         <Route exact path="/services" component={ServicesDetails} />
         <Route path="/cart" component={Cart} />
         <Route

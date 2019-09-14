@@ -70,8 +70,25 @@ form div {
   opacity: 0.9;
 }
 
+.editorial-image-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding-top: 40px;
+}
+
 .editorial-image {
   background-image: url(https://thespaces.com/wp-content/uploads/2017/04/Thurs9th_Hepworth_LR-45-Haarkon.jpg);
+  background-size: cover;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
+
+.editorial-hero-image {
+  background-image: url(http://amworkshops.com/wp-content/uploads/2016/08/Constantin-Brancusi-Studio-1.jpg);
   background-size: cover;
   height: 800px;
   display: flex;
@@ -92,9 +109,27 @@ form div {
   font-family: 'Oswald', sans-serif;
 }
 
+.editorial-template-content-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+  font-size: 12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editorial-template-paragraph {
+  width: 50%;
+  text-align: justify;
+  padding-top: 40px;
+}
+
+.editorial-inline-image {
+  width: 30%;
+}
+
 .shop-preview {
   display: flex;
-  /* height: 400px; */
 }
 
 .shop-styles {
@@ -424,6 +459,7 @@ form div {
 
 .cart-table-row {
   display: table-row;
+  border-bottom: 1px solid #000;
 }
 
 .cart-table-cell,
@@ -457,4 +493,16 @@ form div {
 
 .artwork-cart-details {
   padding-left: 15px;
+}
+
+.cart-total-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 160px;
+  padding-top: 50px;
+  font-weight: bold;
+}
+
+.cart-total-text {
+  padding-right: 50px;
 }

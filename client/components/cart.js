@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {getCart, deleteFromCart} from '../store'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 class Cart extends Component {
   constructor(props) {
@@ -66,11 +67,21 @@ class Cart extends Component {
             </div>
           ))}
         </div>
+        <div className="cart-total-container">
+          <div className="cart-total-text">
+            <p>Total</p>
+          </div>
+          <div>
+            <p>{this.formatPrice(grandTotal)}</p>
+          </div>
+        </div>
         <div className="buttons">
           <div className="continue-shopping-container">
-            <button type="submit" className="continue-shopping-button">
-              CONTINUE SHOPPING
-            </button>
+            <Link to="/collections/all-art">
+              <button type="submit" className="continue-shopping-button">
+                CONTINUE SHOPPING
+              </button>
+            </Link>
           </div>
           <div>
             <button type="submit" className="sign-in-button">
@@ -78,7 +89,6 @@ class Cart extends Component {
             </button>
           </div>
         </div>
-        Here is your grand total: {this.formatPrice(grandTotal)}
       </div>
     )
   }

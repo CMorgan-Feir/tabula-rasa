@@ -2,7 +2,7 @@ import React from 'react'
 
 const EditorialPreview = () => {
   return (
-    <div className="hero-image-container">
+    <div>
       <div className="editorial-image">
         <div className="hero-titles">
           <div>
