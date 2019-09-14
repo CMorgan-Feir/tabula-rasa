@@ -18,9 +18,9 @@ const gotCart = cart => ({
   cart
 })
 
-const deletedFromCart = artworkID => ({
+const deletedFromCart = artworkId => ({
   type: REMOVE_FROM_CART,
-  artworkID
+  artworkId
 })
 
 //THUNK CREATORS
@@ -39,9 +39,8 @@ export const getCart = () => {
 export const deleteFromCart = artworkId => {
   return async dispatch => {
     try {
-      dispatch(deletedFromCart(artworkId))
       const {data} = await axios.delete(`/api/cart/${artworkId}`)
-      console.log(data)
+      dispatch(deletedFromCart(artworkId))
     } catch (err) {
       console.error(err)
     }

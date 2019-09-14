@@ -7,6 +7,10 @@ class Cart extends Component {
     this.props.getCart()
   }
 
+  // componentDidUpdate() {
+  //   this.props.getCart()
+  // }
+
   render() {
     const artworks = this.props.cart.cart
     return (

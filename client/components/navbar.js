@@ -10,6 +10,12 @@ class Navbar extends Component {
     this.props.getCart()
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.cart.cart.length !== prevProps.cart.cart.length) {
+      this.props.getCart()
+    }
+  }
+
   render() {
     console.log(this.props)
     return (
@@ -33,7 +39,7 @@ class Navbar extends Component {
                   <a href="#" onClick={this.props.handleClick}>
                     Logout
                   </a>
-                  {this.props.cart.cart.length > 0 ? (
+                  {this.props.cart.cart ? (
                     <Link to="/cart">Cart ({this.props.cart.cart.length})</Link>
                   ) : (
                     <Link to="/cart">Cart</Link>
