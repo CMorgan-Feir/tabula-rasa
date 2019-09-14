@@ -4,12 +4,14 @@ import axios from 'axios'
 
 const GET_ALL_ARTWORKS = 'GET_ALL_ARTWORKS'
 const GET_SINGLE_ARTWORK = 'GET_SINGLE_ARTWORK'
+const CLEAR_STORED_ARTWORK = 'CLEAR_STORED_ARTWORK'
 
 //INITIAL STATE
 
 const initialState = {
   allArtworks: [],
-  artwork: {}
+  artwork: {},
+  loaded: false
 }
 
 //ACTION CREATORS
@@ -20,6 +22,8 @@ const gotAllArtworks = allArtworks => ({
 })
 
 const getSingleArtwork = artwork => ({type: GET_SINGLE_ARTWORK, artwork})
+
+export const clearArtwork = () => ({type: CLEAR_STORED_ARTWORK})
 
 //THUNK CREATORS
 
@@ -50,7 +54,9 @@ export default function(state = initialState, action) {
     case GET_ALL_ARTWORKS:
       return {...state, allArtworks: action.allArtworks}
     case GET_SINGLE_ARTWORK:
-      return {...state, artwork: action.artwork}
+      return {...state, artwork: action.artwork, loaded: true}
+    case CLEAR_STORED_ARTWORK:
+      return {...state, artwork: {}, loaded: false}
     default:
       return state
   }

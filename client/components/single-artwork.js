@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchSingleArtwork, addArtworkToOrder} from '../store'
+import {fetchSingleArtwork, addArtworkToOrder, clearArtwork} from '../store'
 // import ErrorPage from './error'
 // import {Link} from 'react-router-dom'
 
@@ -22,6 +22,10 @@ class SingleArtwork extends React.Component {
     this.props.fetchSingleArtwork(this.props.match.params.artworkId)
   }
 
+  componentWillUnmount() {
+    this.props.clearArtwork()
+  }
+
   formatPrice(price) {
     return this.state.formatter.format(price)
   }
@@ -32,7 +36,8 @@ class SingleArtwork extends React.Component {
   }
 
   render() {
-    if (this.props.artwork) {
+    console.log(this.props.loaded)
+    if (this.props.loaded) {
       const artwork = this.props.artwork
       return (
         <div className="single-artwork-container">
@@ -54,6 +59,8 @@ class SingleArtwork extends React.Component {
           </div>
         </div>
       )
+    } else {
+      return <h2 />
     }
   }
 }
@@ -62,23 +69,23 @@ class SingleArtwork extends React.Component {
  * CONTAINER
  */
 const mapState = state => {
-  if (state.allArtworks.artwork) {
-    return {
-      artwork: state.allArtworks.artwork,
-      title: state.allArtworks.artwork.title,
-      artist: state.allArtworks.artwork.artist,
-      price: state.allArtworks.artwork.price,
-      year: state.allArtworks.artwork.year,
-      image: state.allArtworks.artwork.image
-      // isLoggedIn: !!state.user.id
-    }
+  return {
+    artwork: state.allArtworks.artwork,
+    title: state.allArtworks.artwork.title,
+    artist: state.allArtworks.artwork.artist,
+    price: state.allArtworks.artwork.price,
+    year: state.allArtworks.artwork.year,
+    image: state.allArtworks.artwork.image,
+    loaded: state.allArtworks.loaded
+    // isLoggedIn: !!state.user.id
   }
 }
 
 const mapDispatch = dispatch => {
   return {
     fetchSingleArtwork: artworkId => dispatch(fetchSingleArtwork(artworkId)),
-    addArtworkToOrder: artworkId => dispatch(addArtworkToOrder(artworkId))
+    addArtworkToOrder: artworkId => dispatch(addArtworkToOrder(artworkId)),
+    clearArtwork: () => dispatch(clearArtwork())
   }
 }
 
