@@ -311,6 +311,20 @@ form div {
   padding-right: 10px;
 }
 
+.remove-button {
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 0px;
+  background-color: black;
+  color: white;
+  font-weight: 700;
+  text-transform: none;
+  width: 100px;
+  height: 30px;
+  padding-right: 10px;
+}
+
 .single-artwork-container {
   display: flex;
   justify-content: center;

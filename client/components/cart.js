@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {getCart} from '../store'
+import {getCart, deleteFromCart} from '../store'
 import {connect} from 'react-redux'
 
 class Cart extends Component {
@@ -8,7 +8,6 @@ class Cart extends Component {
   }
 
   render() {
-    console.log('HI THESE ARE THE PROPS', this.props)
     const artworks = this.props.cart.cart
     return (
       <div className="cart-template">
@@ -28,9 +27,16 @@ class Cart extends Component {
                 <div className="artwork-cart-details">
                   <p>{artwork.title}</p>
                   <p>{artwork.artist}</p>
+                  <button
+                    type="submit"
+                    className="remove-button"
+                    onClick={() => this.props.deleteFromCart(artwork.id)}
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
-              <div className="cart-table-cell">{artwork.price}</div>
+              <div className="cart-table-cell">${artwork.price}</div>
               <div className="cart-table-cell">{artwork.quantity}</div>
               <div className="cart-table-cell">{artwork.price}</div>
             </div>
@@ -39,12 +45,12 @@ class Cart extends Component {
         <div className="buttons">
           <div className="continue-shopping-container">
             <button type="submit" className="continue-shopping-button">
-              Continue Shopping
+              CONTINUE SHOPPING
             </button>
           </div>
           <div>
             <button type="submit" className="sign-in-button">
-              Checkout
+              CHECKOUT
             </button>
           </div>
         </div>
@@ -60,7 +66,10 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return {getCart: () => dispatch(getCart())}
+  return {
+    getCart: () => dispatch(getCart()),
+    deleteFromCart: artworkId => dispatch(deleteFromCart(artworkId))
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

@@ -29,3 +29,24 @@ router.get('/', async (req, res, next) => {
     next(error)
   }
 })
+
+router.delete('/:artworkId', async (req, res, next) => {
+  try {
+    const userId = req.user.id
+    const artworkOrder = await Order.findOne({
+      where: {
+        userId,
+        completed: false
+      }
+    })
+    const deletedArtwork = await ArtworkOrder.destroy({
+      where: {
+        artworkId: req.params.artworkId,
+        orderId: artworkOrder.id
+      }
+    })
+    res.json(deletedArtwork)
+  } catch (error) {
+    next(error)
+  }
+})
