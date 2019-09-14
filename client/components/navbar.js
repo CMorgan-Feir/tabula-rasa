@@ -9,14 +9,7 @@ class Navbar extends Component {
     this.props.getCart()
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.cart.cart.length !== prevProps.cart.cart.length) {
-  //     this.props.getCart()
-  //   }
-  // }
-
   render() {
-    console.log(this.props)
     return (
       <div className="main-header">
         <div className="header-nav">

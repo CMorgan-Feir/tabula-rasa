@@ -30,6 +30,32 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.post('/', async (req, res, next) => {
+  try {
+    if (req.user) {
+      // Step 1: Use the req.user to find the appropriate order
+      const userId = req.user.id
+      let order = await Order.findOne({
+        where: {
+          userId: userId,
+          completed: false
+        }
+      })
+      if (!order) {
+        order = await Order.create({userId: userId})
+      }
+      // Step 2: Add the artwork to the appropriate order
+      const artwork = await Artworks.findByPk(req.body.artworkId)
+      order.addArtwork(artwork)
+      res.send(artwork)
+    } else {
+      res.send({})
+    }
+  } catch (err) {
+    next(err)
+  }
+})
+
 router.delete('/:artworkId', async (req, res, next) => {
   try {
     const userId = req.user.id

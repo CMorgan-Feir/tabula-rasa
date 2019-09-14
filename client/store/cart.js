@@ -56,7 +56,7 @@ export const deleteFromCart = artworkId => {
 export const addArtworkToOrder = artworkId => {
   return async dispatch => {
     try {
-      const {data} = await axios.post(`/api/orders/`, {artworkId: artworkId})
+      const {data} = await axios.post(`/api/cart/`, {artworkId: artworkId})
       dispatch(addedArtworkToOrder(data))
     } catch (error) {
       console.log('Something went wrong: ', error)

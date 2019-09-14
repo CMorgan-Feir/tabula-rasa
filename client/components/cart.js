@@ -24,14 +24,11 @@ class Cart extends Component {
     const artworks = this.props.cart.cart
     const grandTotal = artworks.length
       ? artworks.reduce(
-          (accumulator, currentEl) => accumulator + currentEl.price,
+          (accumulator, currentEl) =>
+            accumulator + parseInt(currentEl.price, 10),
           0
         )
       : 0
-    const formatter = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    })
     return (
       <div className="cart-template">
         <div className="cart-table">
@@ -81,7 +78,7 @@ class Cart extends Component {
             </button>
           </div>
         </div>
-        Here is your grand total: {grandTotal}
+        Here is your grand total: {this.formatPrice(grandTotal)}
       </div>
     )
   }
