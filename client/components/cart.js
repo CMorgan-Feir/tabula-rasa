@@ -26,7 +26,8 @@ class Cart extends Component {
     const grandTotal = artworks.length
       ? artworks.reduce(
           (accumulator, currentEl) =>
-            accumulator + parseInt(currentEl.price, 10),
+            accumulator +
+            parseInt(currentEl.price, 10) * parseInt(currentEl.quantity, 10),
           0
         )
       : 0
