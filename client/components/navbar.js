@@ -10,6 +10,7 @@ class Navbar extends Component {
   }
 
   render() {
+    console.log('navbar props cart', this.props.cart)
     return (
       <div className="main-header">
         <div className="header-nav">
@@ -43,7 +44,11 @@ class Navbar extends Component {
                   {/* The navbar will show these links before you log in */}
                   <Link to="/login">Login</Link>
                   <Link to="/signup">Sign Up</Link>
-                  <Link to="/cart">Cart</Link>
+                  {this.props.cart.cart.length > 0 ? (
+                    <Link to="/cart">Cart ({this.props.cart.cart.length})</Link>
+                  ) : (
+                    <Link to="/cart">Cart</Link>
+                  )}
                 </div>
               )}
             </nav>
