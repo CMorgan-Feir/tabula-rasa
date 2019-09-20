@@ -19,7 +19,7 @@ async function seed() {
     Artworks.create({
       artist: 'Cy Twombly',
       title: 'Untitled IV (Green Paintings)',
-      price: 1000,
+      price: 50,
       year: 1986,
       genre: 'abstract',
       image:
@@ -28,7 +28,7 @@ async function seed() {
     Artworks.create({
       artist: 'Helen Frankenthaler',
       title: 'Painted on 21st Street',
-      price: 600000,
+      price: 60,
       year: 1950,
       genre: 'abstract',
       image:
@@ -37,7 +37,7 @@ async function seed() {
     Artworks.create({
       artist: 'Cy Twombly',
       title: 'Untitled',
-      price: 1000,
+      price: 70,
       year: 1954,
       genre: 'abstract',
       image:
@@ -46,7 +46,7 @@ async function seed() {
     Artworks.create({
       artist: 'Helen Frankenthaler',
       title: 'Mountains and Sea',
-      price: 1000,
+      price: 30,
       year: 1952,
       genre: 'abstract',
       image:
@@ -55,7 +55,7 @@ async function seed() {
     Artworks.create({
       artist: 'Sally Mann',
       title: 'Remembered Light, Untitled (Flamingo and Blinds',
-      price: 1000,
+      price: 30,
       year: 2012,
       genre: 'photograph',
       image:
@@ -64,7 +64,7 @@ async function seed() {
     Artworks.create({
       artist: 'Taryn Simon',
       title: 'Folder: Express Highways',
-      price: 1000,
+      price: 40,
       year: 2012,
       genre: 'photograph',
       image:
@@ -73,7 +73,7 @@ async function seed() {
     Artworks.create({
       artist: 'Jonas Wood',
       title: 'Black and Grey Clipping',
-      price: 1600,
+      price: 30,
       year: 2017,
       genre: 'botanical',
       image:
@@ -100,7 +100,7 @@ async function seed() {
     Artworks.create({
       artist: 'Cy Twombly',
       title: '1986',
-      price: 50,
+      price: 60,
       year: 1986,
       genre: 'abstract',
       image:
@@ -109,7 +109,7 @@ async function seed() {
     Artworks.create({
       artist: 'Cy Twombly',
       title: 'Roman Notes III',
-      price: 50,
+      price: 55,
       year: 1970,
       genre: 'abstract',
       image:
@@ -127,7 +127,7 @@ async function seed() {
     Artworks.create({
       artist: 'Cy Twombly',
       title: 'Untitled',
-      price: 50,
+      price: 75,
       year: 1971,
       genre: 'abstract',
       image:
@@ -145,7 +145,7 @@ async function seed() {
     Artworks.create({
       artist: 'Ysabel Lemay',
       title: 'Wish',
-      price: 50,
+      price: 45,
       year: 2018,
       genre: 'botanical',
       image:
@@ -154,7 +154,7 @@ async function seed() {
     Artworks.create({
       artist: 'Burt Glinn',
       title: 'Duke of Rutland Drinks Champagne at Belvoir Castle, England',
-      price: 50,
+      price: 35,
       year: 1959,
       genre: 'photograph',
       image:
@@ -163,7 +163,7 @@ async function seed() {
     Artworks.create({
       artist: 'Alexander Liberman',
       title: 'The Artist in His Studio and Alberto Giacometti',
-      price: 50,
+      price: 40,
       year: 1960,
       genre: 'photograph',
       image:
@@ -181,7 +181,7 @@ async function seed() {
     Artworks.create({
       artist: 'Mario Giacomelli',
       title: 'Ho la testa piena mamma',
-      price: 50,
+      price: 55,
       year: 1985,
       genre: 'photograph',
       image:
@@ -190,7 +190,7 @@ async function seed() {
     Artworks.create({
       artist: 'Peter Schmersal',
       title: 'Kirschzweige',
-      price: 50,
+      price: 45,
       year: 2018,
       genre: 'botanical',
       image:
@@ -208,7 +208,7 @@ async function seed() {
     Artworks.create({
       artist: 'Henri Matisse',
       title: 'Nu Bleu II (Blue Nude II)',
-      price: 50,
+      price: 60,
       year: 2007,
       genre: 'abstract',
       image:
@@ -217,7 +217,7 @@ async function seed() {
     Artworks.create({
       artist: "Georgia O'Keeffe",
       title: 'Two Calla Lilies on Pink',
-      price: 50,
+      price: 95,
       year: 1928,
       genre: 'botanical',
       image:

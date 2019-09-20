@@ -104,20 +104,27 @@ router.post('/', async (req, res, next) => {
 
 router.delete('/:artworkId', async (req, res, next) => {
   try {
-    const userId = req.user.id
-    const artworkOrder = await Order.findOne({
-      where: {
-        userId,
-        completed: false
-      }
-    })
-    const deletedArtwork = await ArtworkOrder.destroy({
-      where: {
-        artworkId: req.params.artworkId,
-        orderId: artworkOrder.id
-      }
-    })
-    res.json(deletedArtwork)
+    if (req.user === undefined) {
+      req.session.cart = req.session.cart.filter(
+        artwork => artwork.id !== Number(req.params.artworkId)
+      )
+      res.json(req.session.cart)
+    } else {
+      const userId = req.user.id
+      const artworkOrder = await Order.findOne({
+        where: {
+          userId,
+          completed: false
+        }
+      })
+      const deletedArtwork = await ArtworkOrder.destroy({
+        where: {
+          artworkId: req.params.artworkId,
+          orderId: artworkOrder.id
+        }
+      })
+      res.json(deletedArtwork)
+    }
   } catch (error) {
     next(error)
   }

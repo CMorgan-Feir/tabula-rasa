@@ -8,8 +8,9 @@ const Services = () => {
         <div>
           <h2 className="services-title-text">Services</h2>
           <p>
-            The Tabula Rasa approach is to distill the art buying experience
-            through a distinct aesthetic that embodies tasteful curation.
+            The Tabula Rasa approach is to simplify the art-buying experience
+            through accessibly priced replicas that have been tastefully
+            curated.
           </p>
           <p>For more information, email us at advising@tabularasa.com.</p>
           <Link to="/services">
@@ -48,8 +49,8 @@ const Services = () => {
         <div className="partnership-text">
           <p className="services-title-text">Partnerships</p>
           <p>
-            We collaborate with commercial partners for custom prints and
-            commissions.
+            We collaborate with commercial partners for custom 3D-printed
+            replicas and commissions.
           </p>
           <Link to="/services">
             <p className="services-learn-more">Learn More</p>
