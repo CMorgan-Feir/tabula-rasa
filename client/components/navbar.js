@@ -9,8 +9,14 @@ class Navbar extends Component {
     this.props.getCart()
   }
 
+  calculateQuantity() {
+    return this.props.cart.cart.reduce(
+      (acc, curVal) => acc + parseInt(curVal.quantity, 10),
+      0
+    )
+  }
+
   render() {
-    console.log('navbar props cart', this.props.cart)
     return (
       <div className="main-header">
         <div className="header-nav">
@@ -32,8 +38,8 @@ class Navbar extends Component {
                   <a href="#" onClick={this.props.handleClick}>
                     Logout
                   </a>
-                  {this.props.cart.cart ? (
-                    <Link to="/cart">Cart ({this.props.cart.cart.length})</Link>
+                  {this.props.cart.cart.length > 0 ? (
+                    <Link to="/cart">Cart ({this.calculateQuantity()})</Link>
                   ) : (
                     <Link to="/cart">Cart</Link>
                   )}
@@ -45,7 +51,7 @@ class Navbar extends Component {
                   <Link to="/login">Login</Link>
                   <Link to="/signup">Sign Up</Link>
                   {this.props.cart.cart.length > 0 ? (
-                    <Link to="/cart">Cart ({this.props.cart.cart.length})</Link>
+                    <Link to="/cart">Cart ({this.calculateQuantity()})</Link>
                   ) : (
                     <Link to="/cart">Cart</Link>
                   )}
