@@ -30,7 +30,7 @@ class ArtworkPreview extends Component {
           <div key={artwork.id} className="artwork-preview-container">
             <Link to={`/single-artwork/${artwork.id}`}>
               <div className="artwork-preview-image">
-                <img src={artwork.image} style={{height: 300}} />
+                <img className="artwork-preview-image" src={artwork.image} />
               </div>
             </Link>
             <div className="artwork-preview-text">

@@ -35,6 +35,7 @@ router.get('/', async (req, res, next) => {
             let quantity = artwork.quantity
             let artworkDetails = await Artworks.findByPk(artworkId)
             // This makes the quantity always 1
+            artworkDetails.quantity = quantity
             artworkDetails.dataValues.quantity = quantity
             artworkArr.push(artworkDetails)
           }

@@ -10,6 +10,7 @@ class Navbar extends Component {
   }
 
   calculateQuantity() {
+    console.log(this.props.cart.cart)
     return this.props.cart.cart.reduce(
       (acc, curVal) => acc + parseInt(curVal.quantity, 10),
       0

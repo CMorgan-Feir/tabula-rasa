@@ -39,8 +39,8 @@ class SingleArtwork extends React.Component {
       const artwork = this.props.artwork
       return (
         <div className="single-artwork-container">
-          <div className="single-artwork-image">
-            <img src={artwork.image} />
+          <div className="single-artwork-image-container">
+            <img className="single-artwork-image" src={artwork.image} />
           </div>
           <div className="single-artwork-details">
             <h2>{artwork.artist}</h2>

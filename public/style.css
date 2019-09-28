@@ -130,16 +130,24 @@ form div {
 
 .shop-preview {
   display: flex;
+  flex-wrap: wrap;
+}
+
+.shop-preview-work {
+  flex: 2 1 400px;
 }
 
 .shop-styles {
-  flex: 2 1 auto;
+  flex: 1 1 150px;
   padding-right: 20px;
-  width: 300px;
 }
 
 .preview-work {
   flex: 1 1 auto;
+}
+
+#editorial-preview-container {
+  padding-top: 8%;
 }
 
 .styles-content {
@@ -162,17 +170,16 @@ form div {
 
 .all-preview-container {
   display: flex;
-  /* justify-content: space-between; */
   flex-wrap: wrap;
 }
 
 .artwork-preview-container {
-  width: 33%;
   display: flex;
+  flex: 1 1 30%;
+  margin-left: 10px;
+  margin-right: 10px;
   flex-direction: column;
-  padding-top: 70px;
-  padding-bottom: 70px;
-  /* align-items: flex-start; */
+  padding-top: 8%;
 }
 
 .artwork-preview-text {
@@ -182,23 +189,28 @@ form div {
 
 .services-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 70px;
   padding-left: 30px;
 }
 
+.services-images-container {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .services-text {
-  width: 250px;
-  padding-left: 30ox;
+  flex: 1;
+  padding-left: 30px;
   padding-right: 30px;
 }
 
 .services-image {
-  width: 250px;
-}
-
-.partnership-text {
-  width: 250px;
+  width: 90%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .advisory-text {
@@ -206,19 +218,11 @@ form div {
 }
 
 .services-text {
-  flex: 1 1 auto;
+  flex: 1;
 }
 
-.services-installation-box {
-  flex: 1 1 auto;
-}
-
-.services-gallery-partnerships-box {
-  flex: 1 1 auto;
-}
-
-.services-advisory-box {
-  flex: 1 1 auto;
+.services-item {
+  flex: 1 1 30%;
 }
 
 .services-title-text {
@@ -240,20 +244,20 @@ form div {
 .footer-container {
   display: flex;
   padding-top: 20px;
-  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .footer-left {
   justify-content: center;
   align-items: center;
-  flex: 1;
-  padding-left: 200px;
+  flex-basis: 250px;
 }
 
 .footer-right {
   justify-content: center;
   align-items: center;
-  flex: 1;
+  flex-basis: 250px;
 }
 
 #email-subscribe-form {
@@ -362,19 +366,25 @@ form div {
 
 .single-artwork-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding-top: 50px;
+  margin-left: 75px;
+  margin-right: 75px;
+}
+
+.single-artwork-image-container {
+  flex: 2 2 300px;
+  max-width: 650px;
 }
 
 .single-artwork-image {
-  flex: 2;
-  padding-left: 150px;
+  width: 90%;
 }
 
 .single-artwork-details {
   flex: 1;
   align-self: flex-start;
-  padding-right: 200px;
 }
 
 .all-services-container {
@@ -505,4 +515,12 @@ form div {
 
 .cart-total-text {
   padding-right: 50px;
+}
+
+.artwork-preview-image {
+  width: 90%;
+}
+
+.collection-image {
+  width: 100%;
 }

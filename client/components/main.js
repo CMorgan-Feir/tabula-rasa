@@ -49,11 +49,11 @@ const Main = () => {
             </div>
           </div>
         </div>
-        <div className="preview-work">
+        <div className="preview-work, shop-preview-work">
           <ArtworkPreview />
         </div>
       </div>
-      <div className="preview-work">
+      <div className="preview-work" id="editorial-preview-container">
         <Link to="/editorial">
           <EditorialPreview />
         </Link>

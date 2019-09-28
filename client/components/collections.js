@@ -39,7 +39,7 @@ class Collections extends Component {
             <div key={artwork.id} className="artwork-preview-container">
               <Link to={`/single-artwork/${artwork.id}`}>
                 <div className="artwork-preview-image">
-                  <img src={artwork.image} style={{height: 400}} />
+                  <img className="collection-image" src={artwork.image} />
                 </div>
               </Link>
               <div className="artwork-preview-text">
