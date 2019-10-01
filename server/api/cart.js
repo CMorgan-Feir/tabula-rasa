@@ -1,3 +1,4 @@
+/* eslint-disable max-statements */
 const router = require('express').Router()
 const {Order, ArtworkOrder, Artworks} = require('../db/models')
 module.exports = router
@@ -25,7 +26,7 @@ router.get('/', async (req, res, next) => {
         } else {
           const artworkOrder = await ArtworkOrder.findAll({
             where: {
-              orderId: order[0].id
+              orderId: order.id
             }
           })
           let artworkArr = []
@@ -48,10 +49,12 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+// eslint-disable-next-line complexity
+// eslint-disable-next-line max-statements
+// eslint-disable-next-line complexity
 router.post('/', async (req, res, next) => {
   try {
     if (!req.user) {
-      console.log('Using sessions!')
       if (req.session.cart === undefined) {
         req.session.cart = []
         const artwork = await Artworks.findByPk(req.body.artworkId)
@@ -61,15 +64,11 @@ router.post('/', async (req, res, next) => {
         res.send(artwork)
       } else {
         const artwork = await Artworks.findByPk(req.body.artworkId)
-        // console.log('Artwork ID', artwork.id)
-        // console.log('Cart 0 ID', req.session.cart[0].id)
         let duplicates = req.session.cart.filter(
           artInCart => artInCart.id === artwork.id
         )
-        // console.log('Duplicates:', duplicates.length)
         if (duplicates.length > 0) {
           for (let i = 0; i < req.session.cart.length; i++) {
-            // console.log('Checking artwork', req.session.cart[i].id)
             if (req.session.cart[i].id === artwork.id) {
               req.session.cart[i].quantity++
               artwork.quantity = req.session.cart[i].quantity
@@ -93,9 +92,20 @@ router.post('/', async (req, res, next) => {
         order = await Order.create({userId: userId})
       }
       // Step 2: Add the artwork to the appropriate order
-      const artwork = await Artworks.findByPk(req.body.artworkId)
-      // TODO: Need to modify this line to allow user to have more than one artwork in the cart
-      order.addArtwork(artwork)
+      let artworkInOrder = await ArtworkOrder.findOne({
+        where: {
+          artworkId: req.body.artworkId,
+          orderId: order.id
+        }
+      })
+      if (artworkInOrder) {
+        artworkInOrder.update({
+          quantity: artworkInOrder.quantity + 1
+        })
+      } else {
+        const artwork = await Artworks.findByPk(req.body.artworkId)
+        order.addArtwork(artwork)
+      }
       res.send(artwork)
     }
   } catch (err) {
