@@ -44,6 +44,11 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
         exclude: /\.module\.css$/
+      },
+      // font files and gifs
+      {
+        test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+        loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
       }
     ]
   }

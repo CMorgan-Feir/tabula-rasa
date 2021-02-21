@@ -2,27 +2,21 @@ import React from 'react'
 import ArtworkPreview from './artwork-preview'
 import EditorialPreview from './editorial-preview'
 import Services from './services'
-import Hero from './hero'
 import {Link} from 'react-router-dom'
+
+import Slider from './slider'
+
+const images = [
+  'https://morganfeir.s3.us-east-2.amazonaws.com/images/01-Cy-Twombly-This-Is-Glamorous.png',
+  'https://assets.032c.com/2011/02/AAC289017.jpg',
+  'https://assets.032c.com/2011/02/AAC289026.jpg',
+  'https://images.fineartamerica.com/images-medium-large-5/cy-twombly-sitting-in-his-apartment-horst-p-horst.jpg'
+]
 
 const Main = () => {
   return (
     <div>
-      <Hero />
-      {/* <div className="hero-image-container">
-        <Link to="/collections/twombly" className="header-nav-link">
-          <div className="hero-image">
-            <div className="hero-titles">
-              <div>
-                <p className="hero-intro-font">Introducing Cy Twombly</p>
-              </div>
-              <div>
-                <h1>COLLECT NOW</h1>
-              </div>
-            </div>
-          </div>
-        </Link>
-      </div> */}
+      <Slider slides={images} />
       <div className="shop-preview">
         <div className="shop-styles">
           <div className="styles-content">

@@ -60,16 +60,6 @@ form div {
   z-index: 100;
 }
 
-.hero-image {
-  background-image: url(https://morganfeir.s3.us-east-2.amazonaws.com/images/01-Cy-Twombly-This-Is-Glamorous.png);
-  background-size: cover;
-  height: 800px;
-  display: flex;
-  justify-content: center;
-  background-repeat: no-repeat;
-  opacity: 0.9;
-}
-
 .editorial-image-container {
   display: flex;
   width: 100%;
@@ -95,18 +85,6 @@ form div {
   justify-content: center;
   background-repeat: no-repeat;
   opacity: 0.9;
-}
-
-.hero-titles {
-  justify-content: center;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  font-size: xx-large;
-}
-
-.hero-intro-font {
-  font-family: 'Oswald', sans-serif;
 }
 
 .editorial-template-content-text {
@@ -523,4 +501,16 @@ form div {
 
 .collection-image {
   width: 100%;
+}
+
+.slick-prev {
+  left: 3% !important;
+  z-index: 1;
+  color: black;
+}
+
+.slick-next {
+  right: 3% !important;
+  z-index: 1;
+  color: black;
 }

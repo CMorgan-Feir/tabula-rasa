@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom'
 import HeroStyles from './hero.module.css'
 
 const Hero = () => (
-  <div className="hero-image-container">
-    <Link to="/collections/twombly" className="header-nav-link">
-      <div className="hero-image">
-        <div className="hero-titles">
+  <div>
+    <Link to="/collections/twombly">
+      <div className={HeroStyles['hero-image']}>
+        <div className={HeroStyles['hero-titles']}>
           <div>
             <p className={HeroStyles['hero-intro-font']}>
               Introducing Cy Twombly
