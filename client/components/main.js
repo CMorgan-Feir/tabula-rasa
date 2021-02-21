@@ -2,12 +2,14 @@ import React from 'react'
 import ArtworkPreview from './artwork-preview'
 import EditorialPreview from './editorial-preview'
 import Services from './services'
+import Hero from './hero'
 import {Link} from 'react-router-dom'
 
 const Main = () => {
   return (
     <div>
-      <div className="hero-image-container">
+      <Hero />
+      {/* <div className="hero-image-container">
         <Link to="/collections/twombly" className="header-nav-link">
           <div className="hero-image">
             <div className="hero-titles">
@@ -20,7 +22,7 @@ const Main = () => {
             </div>
           </div>
         </Link>
-      </div>
+      </div> */}
       <div className="shop-preview">
         <div className="shop-styles">
           <div className="styles-content">
