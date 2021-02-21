@@ -5,11 +5,13 @@ import axios from 'axios'
 const GET_CART = 'GET_CART'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 const ADD_TO_ORDER = 'ADD_TO_ORDER'
+const CLEAR_LAST_ITEM = 'CLEAR_LAST_ITEM'
 
 //INITIAL STATE
 
 const initialState = {
-  cart: []
+  cart: [],
+  lastItem: undefined
 }
 
 //ACTION CREATORS
@@ -27,6 +29,10 @@ const deletedFromCart = artworkId => ({
 const addedArtworkToOrder = artwork => ({
   type: ADD_TO_ORDER,
   artwork
+})
+
+const clearedLastItemPopup = () => ({
+  type: CLEAR_LAST_ITEM
 })
 
 //THUNK CREATORS
@@ -64,6 +70,16 @@ export const addArtworkToOrder = artworkId => {
   }
 }
 
+export const clearLastItemPopup = () => {
+  return dispatch => {
+    try {
+      dispatch(clearedLastItemPopup())
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
 //REDUCER
 
 export default function(state = initialState, action) {
@@ -76,7 +92,16 @@ export default function(state = initialState, action) {
       )
       return {...state, cart: [...newCart]}
     case ADD_TO_ORDER:
-      return {...state, cart: [...state.cart, action.artwork]}
+      return {
+        ...state,
+        cart: [...state.cart, action.artwork],
+        lastItem: action.artwork
+      }
+    case CLEAR_LAST_ITEM:
+      return {
+        ...state,
+        lastItem: undefined
+      }
     default:
       return state
   }

@@ -5,6 +5,7 @@ import Services from './services'
 import {Link} from 'react-router-dom'
 
 import Slider from './slider'
+import CartContainer from './cart/cart-popup-container'
 
 const images = [
   'https://morganfeir.s3.us-east-2.amazonaws.com/images/01-Cy-Twombly-This-Is-Glamorous.png',
@@ -16,6 +17,7 @@ const images = [
 const Main = () => {
   return (
     <div>
+      <CartContainer />
       <Slider slides={images} />
       <div className="shop-preview">
         <div className="shop-styles">

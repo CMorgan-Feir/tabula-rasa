@@ -57,7 +57,7 @@ form div {
   width: 100%;
   line-height: 1;
   position: relative;
-  z-index: 100;
+  z-index: 5;
 }
 
 .editorial-image-container {

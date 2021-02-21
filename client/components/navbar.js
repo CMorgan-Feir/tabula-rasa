@@ -36,9 +36,9 @@ class Navbar extends Component {
               {this.props.isLoggedIn ? (
                 <div>
                   {/* The navbar will show these links after you log in */}
-                  <a href="#" onClick={this.props.handleClick}>
-                    Logout
-                  </a>
+                  {/* <a href="#" onClick={this.props.handleClick}> */}
+                  Logout
+                  {/* </a> */}
                   {this.props.cart.cart.length > 0 ? (
                     <Link to="/cart">Cart ({this.calculateQuantity()})</Link>
                   ) : (
