@@ -21,7 +21,11 @@ const CartPopup = ({clearLastItem, lastItem}) => {
         </div>
       )}
       <Link to="/cart">
-        <button type="button" className={CartPopupStyles['cart-button']}>
+        <button
+          type="button"
+          onClick={clearLastItem}
+          className={CartPopupStyles['cart-button']}
+        >
           VIEW CART
         </button>
       </Link>

@@ -10,7 +10,6 @@ class Navbar extends Component {
   }
 
   calculateQuantity() {
-    console.log(this.props.cart.cart)
     return this.props.cart.cart.reduce(
       (acc, curVal) => acc + parseInt(curVal.quantity, 10),
       0
@@ -35,10 +34,7 @@ class Navbar extends Component {
             <nav>
               {this.props.isLoggedIn ? (
                 <div>
-                  {/* The navbar will show these links after you log in */}
-                  {/* <a href="#" onClick={this.props.handleClick}> */}
                   Logout
-                  {/* </a> */}
                   {this.props.cart.cart.length > 0 ? (
                     <Link to="/cart">Cart ({this.calculateQuantity()})</Link>
                   ) : (

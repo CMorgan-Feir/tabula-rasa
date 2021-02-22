@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchSingleArtwork, addArtworkToOrder, clearArtwork} from '../store'
-import {BrowserRouter, Route} from 'react-router-dom'
+import CartContainer from './cart/cart-popup-container'
 
 /**
  * COMPONENT
@@ -31,31 +31,34 @@ class SingleArtwork extends React.Component {
 
   addToCart = async () => {
     await this.props.addArtworkToOrder(this.props.match.params.artworkId)
-    this.props.history.push('/cart')
+    console.log('In here and not pushing to cart here')
   }
 
   render() {
     if (this.props.loaded) {
       const artwork = this.props.artwork
       return (
-        <div className="single-artwork-container">
-          <div className="single-artwork-image-container">
-            <img className="single-artwork-image" src={artwork.image} />
+        <>
+          <CartContainer />
+          <div className="single-artwork-container">
+            <div className="single-artwork-image-container">
+              <img className="single-artwork-image" src={artwork.image} />
+            </div>
+            <div className="single-artwork-details">
+              <h2>{artwork.artist}</h2>
+              <h1>{artwork.title}</h1>
+              <p>{artwork.year}</p>
+              <p>{this.formatPrice(artwork.price)}</p>
+              <button
+                type="submit"
+                onClick={this.addToCart}
+                className="sign-in-button"
+              >
+                Add to cart
+              </button>
+            </div>
           </div>
-          <div className="single-artwork-details">
-            <h2>{artwork.artist}</h2>
-            <h1>{artwork.title}</h1>
-            <p>{artwork.year}</p>
-            <p>{this.formatPrice(artwork.price)}</p>
-            <button
-              type="submit"
-              onClick={this.addToCart}
-              className="sign-in-button"
-            >
-              Add to cart
-            </button>
-          </div>
-        </div>
+        </>
       )
     } else {
       return <h2 />
