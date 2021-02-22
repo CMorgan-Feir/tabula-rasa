@@ -29,7 +29,7 @@ class ArtworkPreview extends Component {
         {artworks.map(artwork => (
           <div key={artwork.id} className="artwork-preview-container">
             <Link to={`/single-artwork/${artwork.id}`}>
-              <div className="artwork-preview-image">
+              <div className="artwork-preview-image-container">
                 <img className="artwork-preview-image" src={artwork.image} />
               </div>
             </Link>

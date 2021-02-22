@@ -57,7 +57,6 @@ form div {
   width: 100%;
   line-height: 1;
   position: relative;
-  z-index: 5;
 }
 
 .editorial-image-container {
@@ -104,6 +103,18 @@ form div {
 
 .editorial-inline-image {
   width: 30%;
+}
+
+.hero-titles {
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: xx-large;
+}
+
+.hero-intro-font {
+  font-family: 'Oswald', sans-serif;
 }
 
 .shop-preview {
@@ -495,22 +506,18 @@ form div {
   padding-right: 50px;
 }
 
+.artwork-preview-image-container {
+  width: 90%;
+}
+
 .artwork-preview-image {
   width: 90%;
 }
 
+.artwork-preview-image:hover {
+  object-fit: none;
+}
+
 .collection-image {
   width: 100%;
-}
-
-.slick-prev {
-  left: 3% !important;
-  z-index: 1;
-  color: black;
-}
-
-.slick-next {
-  right: 3% !important;
-  z-index: 1;
-  color: black;
 }
