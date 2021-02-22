@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import {useState} from 'react'
 import {css, jsx} from '@emotion/react'
+import {Link} from 'react-router-dom'
 import SliderContent from './slider-content'
 import Slide from './slide'
 import Dots from './dots'
@@ -40,7 +41,9 @@ const Slider = props => {
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
       />
-      <SliderText />
+      <Link to="/collections/twombly">
+        <SliderText />
+      </Link>
     </div>
   )
 }
