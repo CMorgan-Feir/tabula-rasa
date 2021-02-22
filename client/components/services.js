@@ -1,8 +1,16 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {motion} from 'framer-motion'
+import {pageVariants, pageTransition} from '../transition'
 
-const Services = () => {
-  return (
+const Services = () => (
+  <motion.div
+    initial="initial"
+    animate="in"
+    exit="out"
+    variants={pageVariants}
+    transition={pageTransition}
+  >
     <div className="services-container">
       <div className="services-text">
         <div>
@@ -77,7 +85,7 @@ const Services = () => {
         </div>
       </div>
     </div>
-  )
-}
+  </motion.div>
+)
 
 export default Services

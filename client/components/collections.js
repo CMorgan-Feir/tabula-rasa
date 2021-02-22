@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {motion} from 'framer-motion'
 import {getAllArtworks} from '../store'
 import CartContainer from './cart/cart-popup-container'
+import {pageVariants, pageTransition} from '../transition'
 
 class Collections extends Component {
   constructor(props) {
@@ -26,7 +28,13 @@ class Collections extends Component {
   render() {
     const artworks = this.props.artworks.allArtworks
     return (
-      <>
+      <motion.div
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
         <CartContainer />
         <div className="all-art-container">
           {/* take all the artworks, and only show the right ones */}
@@ -55,7 +63,7 @@ class Collections extends Component {
               </div>
             ))}
         </div>
-      </>
+      </motion.div>
     )
   }
 }

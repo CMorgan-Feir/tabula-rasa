@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {getCart, deleteFromCart} from '../store'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {motion} from 'framer-motion'
+import {pageVariants, pageTransition} from '../transition'
 
 class Cart extends Component {
   constructor(props) {
@@ -32,65 +34,73 @@ class Cart extends Component {
         )
       : 0
     return (
-      <div className="cart-template">
-        <div className="cart-table">
-          <div className="cart-table-row">
-            <div className="cart-table-head main-cell">Product</div>
-            <div className="cart-table-head">Price</div>
-            <div className="cart-table-head">Quantity</div>
-            <div className="cart-table-head">Subtotal</div>
-          </div>
-          {artworks.map(artwork => (
-            <div className="cart-table-row" key={artwork.id}>
-              <div className="cart-table-cell main-cell">
-                <div>
-                  <img src={artwork.image} width="100px" />
-                </div>
-                <div className="artwork-cart-details">
-                  <p>{artwork.title}</p>
-                  <p>{artwork.artist}</p>
-                  <button
-                    type="submit"
-                    className="remove-button"
-                    onClick={() => this.props.deleteFromCart(artwork.id)}
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-              <div className="cart-table-cell">
-                {this.formatPrice(artwork.price)}
-              </div>
-              <div className="cart-table-cell">{artwork.quantity}</div>
-              <div className="cart-table-cell">
-                {this.formatPrice(artwork.price * artwork.quantity)}
-              </div>
+      <motion.div
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
+        <div className="cart-template">
+          <div className="cart-table">
+            <div className="cart-table-row">
+              <div className="cart-table-head main-cell">Product</div>
+              <div className="cart-table-head">Price</div>
+              <div className="cart-table-head">Quantity</div>
+              <div className="cart-table-head">Subtotal</div>
             </div>
-          ))}
-        </div>
-        <div className="cart-total-container">
-          <div className="cart-total-text">
-            <p>Total</p>
+            {artworks.map(artwork => (
+              <div className="cart-table-row" key={artwork.id}>
+                <div className="cart-table-cell main-cell">
+                  <div>
+                    <img src={artwork.image} width="100px" />
+                  </div>
+                  <div className="artwork-cart-details">
+                    <p>{artwork.title}</p>
+                    <p>{artwork.artist}</p>
+                    <button
+                      type="submit"
+                      className="remove-button"
+                      onClick={() => this.props.deleteFromCart(artwork.id)}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+                <div className="cart-table-cell">
+                  {this.formatPrice(artwork.price)}
+                </div>
+                <div className="cart-table-cell">{artwork.quantity}</div>
+                <div className="cart-table-cell">
+                  {this.formatPrice(artwork.price * artwork.quantity)}
+                </div>
+              </div>
+            ))}
           </div>
-          <div>
-            <p>{this.formatPrice(grandTotal)}</p>
+          <div className="cart-total-container">
+            <div className="cart-total-text">
+              <p>Total</p>
+            </div>
+            <div>
+              <p>{this.formatPrice(grandTotal)}</p>
+            </div>
           </div>
-        </div>
-        <div className="buttons">
-          <div className="continue-shopping-container">
-            <Link to="/collections/all-art">
-              <button type="submit" className="continue-shopping-button">
-                CONTINUE SHOPPING
+          <div className="buttons">
+            <div className="continue-shopping-container">
+              <Link to="/collections/all-art">
+                <button type="submit" className="continue-shopping-button">
+                  CONTINUE SHOPPING
+                </button>
+              </Link>
+            </div>
+            <div>
+              <button type="submit" className="sign-in-button">
+                CHECKOUT
               </button>
-            </Link>
-          </div>
-          <div>
-            <button type="submit" className="sign-in-button">
-              CHECKOUT
-            </button>
+            </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     )
   }
 }

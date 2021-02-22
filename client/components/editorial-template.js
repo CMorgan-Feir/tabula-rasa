@@ -1,7 +1,15 @@
 import React from 'react'
+import {motion} from 'framer-motion'
+import {pageVariants, pageTransition} from '../transition'
 
-const EditorialTemplate = () => {
-  return (
+const EditorialTemplate = () => (
+  <motion.div
+    initial="initial"
+    animate="in"
+    exit="out"
+    variants={pageVariants}
+    transition={pageTransition}
+  >
     <div className="editorial-template-container">
       <div className="editorial-hero-image">
         <div className="hero-titles">
@@ -77,7 +85,7 @@ const EditorialTemplate = () => {
         </div>
       </div>
     </div>
-  )
-}
+  </motion.div>
+)
 
 export default EditorialTemplate

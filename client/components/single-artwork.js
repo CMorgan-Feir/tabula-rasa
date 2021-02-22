@@ -1,5 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {motion} from 'framer-motion'
+import {pageVariants, pageTransition} from '../transition'
 import {fetchSingleArtwork, addArtworkToOrder, clearArtwork} from '../store'
 import CartContainer from './cart/cart-popup-container'
 
@@ -38,7 +40,13 @@ class SingleArtwork extends React.Component {
     if (this.props.loaded) {
       const artwork = this.props.artwork
       return (
-        <>
+        <motion.div
+          initial="initial"
+          animate="in"
+          exit="out"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
           <CartContainer />
           <div className="single-artwork-container">
             <div className="single-artwork-image-container">
@@ -58,7 +66,7 @@ class SingleArtwork extends React.Component {
               </button>
             </div>
           </div>
-        </>
+        </motion.div>
       )
     } else {
       return <h2 />

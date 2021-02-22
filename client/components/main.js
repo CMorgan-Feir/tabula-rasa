@@ -3,6 +3,8 @@ import ArtworkPreview from './artwork-preview'
 import EditorialPreview from './editorial-preview'
 import Services from './services'
 import {Link} from 'react-router-dom'
+import {motion} from 'framer-motion'
+import {pageVariants, pageTransition} from '../transition'
 
 import Slider from './slider'
 import CartContainer from './cart/cart-popup-container'
@@ -16,7 +18,13 @@ const images = [
 
 const Main = () => {
   return (
-    <div>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
       <CartContainer />
       <Slider slides={images} />
       <div className="shop-preview">
@@ -59,7 +67,7 @@ const Main = () => {
       <div className="preview-services">
         <Services />
       </div>
-    </div>
+    </motion.div>
   )
 }
 
