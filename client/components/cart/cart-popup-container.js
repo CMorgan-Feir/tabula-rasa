@@ -12,7 +12,10 @@ class CartContainer extends Component {
         className={CartPopupStyles['cart-popup-container']}
         style={{display: this.props.lastItem ? '' : 'none'}}
       >
-        <CartPopup clearLastItem={this.props.clearLastItem} />
+        <CartPopup
+          clearLastItem={this.props.clearLastItem}
+          lastItem={this.props.lastItem}
+        />
       </div>
     )
   }
