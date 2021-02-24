@@ -165,10 +165,13 @@ form div {
 .artwork-preview-container {
   display: flex;
   flex: 1 1 30%;
+  min-width: 200px;
   margin-left: 10px;
   margin-right: 10px;
   flex-direction: column;
   padding-top: 8%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .artwork-preview-text {
@@ -289,6 +292,7 @@ form div {
   display: flex;
   flex-wrap: wrap;
   padding-left: 50px;
+  padding-right: 50px;
 }
 
 .signup-field {
@@ -511,7 +515,7 @@ form div {
 }
 
 .artwork-preview-image {
-  width: 90%;
+  width: 100%;
 }
 
 .artwork-preview-image:hover {
