@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import {useState} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import {css, jsx} from '@emotion/react'
 import {Link} from 'react-router-dom'
 import SliderContent from './slider-content'
@@ -15,6 +15,28 @@ const Slider = props => {
 
   const transition = 0.45
   const [activeIndex, setActiveIndex] = useState(0)
+  const [currentWidth, setCurrentWidth] = useState(getWidth())
+
+  const resizeRef = useRef()
+
+  const handleResize = () => {
+    setCurrentWidth(getWidth())
+  }
+
+  useEffect(() => {
+    const resize = () => {
+      resizeRef.current()
+    }
+    const onResize = window.addEventListener('resize', resize)
+
+    return () => {
+      window.removeEventListener('resize', onResize)
+    }
+  }, [])
+
+  useEffect(() => {
+    resizeRef.current = handleResize
+  })
 
   return (
     <div
@@ -27,9 +49,9 @@ const Slider = props => {
       `}
     >
       <SliderContent
-        translate={activeIndex * getWidth()}
+        translate={activeIndex * currentWidth}
         transition={transition}
-        width={getWidth() * props.slides.length}
+        width={currentWidth * props.slides.length}
       >
         {props.slides.map((slide, i) => (
           <Slide key={slide + i} content={slide} />
